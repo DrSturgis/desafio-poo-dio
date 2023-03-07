@@ -1,4 +1,6 @@
+import com.dio.desafio.dominio.Bootcamp;
 import com.dio.desafio.dominio.Curso;
+import com.dio.desafio.dominio.Dev;
 import com.dio.desafio.dominio.Mentoria;
 
 import java.time.LocalDate;
@@ -29,6 +31,31 @@ public class Main {
         m.setDesc("Mentoria");
 
         System.out.println(m.toString());
+
+        Bootcamp b = new Bootcamp();
+        b.setNome("Java Dev");
+        b.setDesc("Java POO");
+        b.getContents().add(c);
+        b.getContents().add(p);
+        b.getContents().add(m);
+
+
+        Dev d = new Dev();
+        d.setNome("Matheu");
+        d.inscreverBootcamp(b);
+        d.progredir();
+
+
+        Dev e = new Dev();
+        e.setNome("João");
+
+
+        System.out.println("Conteudos Inscritos: " + d.getConteudosInscritos());
+        System.out.println("Conteudos Concluidos: " + d.getConteudosConcluidos());
+        System.out.println(d.calcularTotalXp());
+
+        d.progredir();
+        System.out.println(d.calcularTotalXp());
 
     }
 }
